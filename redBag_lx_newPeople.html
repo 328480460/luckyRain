@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link rel="stylesheet" type="text/css" href="css/redBag_lx_newPeople.css">
+	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="redPageBox">
+			<img src="images/redBag_lx_newPeople/noUse.png" style="display: none;"/>
+			<img src="images/redBag_lx_newPeople/used.png" style="display: none;"/>
+			<img src="images/redBag_lx_newPeople/invalid.png"/>
+			<div class="clearBoth">
+				<div class="left"><p>红包</p></div>
+				<div class="right">
+					<p><span>￥</span>20</p>
+					<p>红包有效期至2016-12-03</p>
+				</div>
+			</div>
+		</div>
+		<div class="step">
+			<img src="images/redBag_lx_newPeople/step.png" class="tittle"/>
+			<div class="stepList">
+				<img src="images/redBag_lx_newPeople/setpList_03.png"/>
+				<ul>
+					<li>下载客户端</li>
+					<li>登录账户领取红包</li>
+				</ul>
+			</div>
+		</div>
+		<div class="downLoad"><a href="http://www.baidu.com"><span>①</span>下载聚爱财客户端</a></div>
+		<div class="shareTittle"><img src="images/redBag_lx_newPeople/shareTittle_03.png" /></div>
+		<div class="share"><a href="javascript:;" id="share">分享给好友</a></div>
+		<p class="tips">注意：红包雨活动与其他新人活动不可同时参加</p>
+		<div class="fromFriends">
+			<img src="images/redBag_lx_newPeople/fromFriend.png" class="tittle"/>
+			<div class="lx_thead">
+				<table >
+					<tbody >
+						<tr >
+							<td class="yellow">昵称</td>
+							<td class="yellow">红包金额</td>
+							<td class="yellow">是否获得</td>
+							<td class="yellow">我的奖励</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="lx_recored">
+				<table >
+					<tbody>
+						<tr>
+							<td><span>小王汪汪旺旺王弯弯赶往</span></td>
+							<td>11元</td>
+							<td>是</td>
+							<td>11元</td>
+						</tr>
+						<tr>
+							<td><span>小王汪汪旺</span></td>
+							<td>11元</td>
+							<td>否</td>
+							<td>暂无</td>
+						</tr>
+						<tr>
+							<td><span>小王</span></td>
+							<td>11元</td>
+							<td>否</td>
+							<td>暂无</td>
+						</tr>
+						<tr>
+							<td><span>小王汪</span></td>
+							<td>11元</td>
+							<td>否</td>
+							<td>暂无</td>
+						</tr>
+						<tr>
+							<td><span>小王</span></td>
+							<td>11元</td>
+							<td>否</td>
+							<td>暂无</td>
+						</tr>
+						<tr>
+							<td><span>小王</span></td>
+							<td>11元</td>
+							<td>否</td>
+							<td>暂无</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="page_change clear">
+					<span class="fl up">上一页</span>
+					<p class="fl page_num"><span>1</span>/<span>36</span></p>
+					<span class="fr down">下一页</span>
+				</div>
+			</div>
+		</div>
+		<div class="activeRule">
+			<img src="images/redBag_lx_oldPeople/rule.png" class="tittle"/>
+			<div>
+				<p>1.红包雨活动期间每个新用户只能获得一次红包。</p>
+				<br />
+				<p>2.购买30天及以上产品满2000元，红包将自动打款至您的银行卡。</p>
+				<br />
+				<p>3.红包有效期30天。</p>
+				<br />
+				<p>4.活动时间2016年11月3日-12月3日。</p>
+			</div>
+		</div>
+		<div class="logo"><img src="images/redBag_lx_oldPeople/logo.png"/></div>
+	</div>
+	<!--分享到朋友圈提示-->
+	<div class="shareModal"><img src="images/redBag_lx_newPeople/shareModal.png"/></div>
+</body>
+<script type="text/javascript">
+	window.onload = function(){
+		var share = document.querySelector("#share");
+		var shareModal = document.querySelector(".shareModal");
+		share.addEventListener("click",function(e){
+			e.preventDefault();
+			shareModal.style.display = 'block';
+		},false)
+		shareModal.addEventListener('touchstart',function(e){
+			e.preventDefault();
+			shareModal.style.display = 'none';
+		},false)
+	}
+</script>
+</html>

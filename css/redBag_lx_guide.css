@@ -1,0 +1,79 @@
+/*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+a,a:active,a:hover{-webkit-tap-highlight-color:rgba(0,0,0,0);text-decoration:none}
+img,legend{border:0}
+.container,.header,body,html{width:100%}
+*{-webkit-tap-highlight-color:rgba(0,0,0,0)}
+html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Microsoft Yahei","Helvetica Neue",helvetica,tahoma,arial,sans-serif;font-size:.24rem;background-color:#ececec}
+article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}
+audio,canvas,progress,video{display:inline-block;vertical-align:baseline}
+dd,dl,dt,h1,h2,h3,h4,h5,h6,img,li,p,ul{margin:0;padding:0;font-weight:400}
+li{list-style:none}
+audio:not([controls]){display:none;height:0}
+[hidden],template{display:none}
+a{background-color:transparent}
+a:active,a:hover{outline:0}
+abbr[title]{border-bottom:1px dotted}
+b,optgroup,strong{font-weight:700}
+dfn{font-style:italic}
+h1{font-size:2em}
+mark{background:#ff0;color:#000}
+small{font-size:80%}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+.header .left,.header .right{vertical-align:middle;text-align:center}
+sup{top:-.5em}
+sub{bottom:-.25em}
+svg:not(:root){overflow:hidden}
+figure{margin:1em 40px}
+hr{box-sizing:content-box;height:0}
+pre,textarea{overflow:auto}
+code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}
+button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}
+button{overflow:visible}
+button,select{text-transform:none}
+button,html input[type=button],input[type=reset],input[type=submit]{-webkit-appearance:button;cursor:pointer}
+button[disabled],html input[disabled]{cursor:default}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+input{line-height:normal}
+input[type=checkbox],input[type=radio]{box-sizing:border-box;padding:0}
+input[type=number]::-webkit-inner-spin-button,input[type=number]::-webkit-outer-spin-button{height:auto}
+input[type=search]{-webkit-appearance:textfield;box-sizing:content-box}
+input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration{-webkit-appearance:none}
+fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}
+legend{padding:0}
+table{border-collapse:collapse;border-spacing:0}
+td,th{padding:0}
+.clear:after{content:"";display:block;clear:both}
+.container{background-color:#ececec;line-height:1.3}
+.header{height:2.98rem;background:url(../images/redBag_lx_guide/redbanner.png) no-repeat;background-size:contain;font-size:0}
+.header .cont{width:6.18rem;margin:0 auto}
+.header .left{width:28%;display:inline-block;margin-top:.8rem;color:#a78600;font-size:.31rem}
+.header .left span{display:block;width:20px;margin:0 auto}
+.header .right{width:72%;display:inline-block;margin-top:.7rem}
+.header .right .num{color:#ff593d;font-size:1.08rem}
+.header .right .num span{font-size:.44rem}
+.header .right .limitTime{margin-top:-.1rem;font-size:.27rem;color:#a68500}
+.product{box-sizing:border-box;background-color:#FFF;width:100%;height:auto;margin-top:.2rem;padding:.38rem .46rem .25rem .6rem;border-bottom:1px #e0e0e0 solid}
+.product .productHeader{padding-bottom:.25rem;border-bottom:1px #ebebeb solid}
+.product .productHeader h1{color:#333;font-size:.28rem;position:relative;padding-left:.1rem}
+.product .productHeader h1:before{content:"";display:block;height:.3rem;width:2px;background-color:#ff593d;position:absolute;left:-1px;top:.02rem}
+.product .productList{display:block;width:100%;height:auto;border-radius:.1rem;border-top:0;padding-top:.3rem}
+.product .productList ul li{width:100%;height:auto;padding-bottom:.3rem;border-bottom:1px #e8e8e8 solid;position:relative;margin-bottom:.3rem}
+.product .productList ul li h2{font-size:.24rem;color:#666;position:relative}
+.product .productList ul li h2 span{vertical-align:top;display:inline-block;position:relative}
+.product .productList ul li h2 img.jiantou{width:.14rem;height:auto;vertical-align:top;border:.2rem solid transparent;position:absolute;right:-.1rem;top:-.2rem}
+.product .productList ul li .productMain{width:100%;height:auto;margin-top:.3rem;position:relative}
+.product .productList ul li .productMain div{float:left}
+.product .productList ul li .productMain div h3{font-size:.4rem;margin-bottom:.28rem}
+.product .productList ul li .productMain div h3 span{font-size:.24rem}
+.product .productList ul li .productMain div p{font-size:.24rem;color:#777}
+.product .productList ul li .productMain div.L{width:2.52rem;height:100%}
+.product .productList ul li .productMain div.L h3{color:#ff604c}
+.product .productList ul li .productMain div.M{width:2.05rem;height:100%}
+.product .productList ul li .productMain div.M h3{color:#2b2b2b}
+.product .productList ul li .productMain div.R{width:1.44rem;background-color:#ff5a45;padding:.12rem 0;text-align:center;font-size:.28rem;border-radius:.06rem;position:absolute;right:.06rem;bottom:0}
+.product .productList ul li .productMain div.R p{color:#fff}
+.product .productList ul li:last-child{border-bottom:none;margin:0}
+.product .noProduct{display:none;width:100%;color:#999;text-align:center;height:3rem;line-height:3rem}
+.logo{margin-top:1.2rem;padding-bottom:.2rem}
+.logo img{display:block;width:100%}

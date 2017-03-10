@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<link rel="stylesheet" type="text/css" href="css/redBag_lx_oldPeople.css">
+	<script src="js/public.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<div class="container">
+		<div class="remind">
+			<p class="money"><span>￥</span>20<span>红包</span></p>
+			<p class="explain">红包仅限新用户领取，
+				您可以将20元红包变为红包雨分享给好友,
+				好友投资后，您可以获得同等红包
+			</p>
+			<a href="javascript:;" class="share" id="share">分享给好友</a>
+		</div>
+		<div class="step"> 
+			<img src="images/redBag_lx_oldPeople/step.png"/ class="tittle">
+			<div class="cont">
+				<img src="images/redBag_lx_oldPeople/iconList_03.png" alt="" />
+				<ul>
+					<li>分享红包雨</li>
+					<li>好友成功领取</li>
+					<li>您获得同等红包</li>
+				</ul>
+			</div>
+		</div>
+		<div class="fromFriends">
+			<img src="images/redBag_lx_oldPeople/fromFriend.png" class="tittle"/>
+			<div class="lx_thead">
+				<table >
+					<tbody >
+						<tr >
+							<td class="yellow">昵称</td>
+							<td class="yellow">红包金额</td>
+							<td class="yellow">是否获得</td>
+							<td class="yellow">我的奖励</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="lx_recored">
+				<table >
+					<tbody>
+						<tr>
+							<td><span>小王汪汪旺旺王弯弯赶往</span></td>
+							<td>11元</td>
+							<td>是</td>
+							<td>11元</td>
+						</tr>
+						<tr>
+							<td><span>小王汪汪旺</span></td>
+							<td>11元</td>
+							<td>否</td>
+							<td>暂无</td>
+						</tr>
+						<tr>
+							<td><span>小王</span></td>
+							<td>11元</td>
+							<td>否</td>
+							<td>暂无</td>
+						</tr>
+						<tr>
+							<td><span>小王汪</span></td>
+							<td>11元</td>
+							<td>否</td>
+							<td>暂无</td>
+						</tr>
+						<tr>
+							<td><span>小王</span></td>
+							<td>11元</td>
+							<td>否</td>
+							<td>暂无</td>
+						</tr>
+						<tr>
+							<td><span>小王</span></td>
+							<td>11元</td>
+							<td>否</td>
+							<td>暂无</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="page_change clear">
+					<span class="fl up">上一页</span>
+					<p class="fl page_num"><span>1</span>/<span>36</span></p>
+					<span class="fr down">下一页</span>
+				</div>
+			</div>
+		</div>
+		<div class="activeRule">
+			<img src="images/redBag_lx_oldPeople/rule.png" class="tittle"/>
+			<div>
+				<p>活动规则：</p>
+				<br />
+				<p>1.红包雨红包仅限新用户获得。</p>
+				<br />
+				<p>2.新用户获取红包成功,发红包老用户可得等值红包。</p>
+				<br />
+				<p>3.红包雨活动每个新用户只能获得一次红包。</p>
+				<br />
+				<p>4.活动时间2016年11月3日-12月3日。</p>
+			</div>
+		</div>
+		<div class="logo"><img src="images/redBag_lx_oldPeople/logo.png"/></div>
+	</div>
+	<!--分享到朋友圈提示-->
+	<div class="shareModal"><img src="images/redBag_lx_newPeople/shareModal.png"/></div>
+</body>
+<script type="text/javascript">
+	window.onload = function(){
+		var share = document.querySelector("#share");
+		var shareModal = document.querySelector(".shareModal");
+		share.addEventListener("click",function(e){
+			e.preventDefault();
+			shareModal.style.display = 'block';
+		},false)
+		shareModal.addEventListener('touchstart',function(e){
+			e.preventDefault();
+			shareModal.style.display = 'none';
+		},false)
+	}
+</script>
+</html>

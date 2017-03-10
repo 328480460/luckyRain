@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no"/>
+<meta name="format-detection" content="telephone=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="stylesheet" href="css/redbag_lx.css">
+<script src="js/public.js"></script>
+<script src="js/jquery-2.2.3.min.js"></script>
+<script src="js/countdown.js"></script>
+<script src="js/resLoader.js"></script>
+<title>红包雨拉新</title>
+</head>
+<body>
+	<!--主页面-->
+	<div class="redbag_lx">
+		<!--相关信息-->
+		<div class="red_info clear">
+			<span class="count_time fl">00：10</span>
+			<span class=" fr">元</span>
+			<span class="red_money fr"> 0</span>
+
+			<span class="fr white">已抢金额：</span>
+		</div>
+		<div class="red_btn">开始</div>
+	</div>
+	<!--3秒倒计时-->
+	<div class="count_time_t">
+		<img src="images/redbag_lx/3.png" class="count_tt" />
+	</div>
+	<!--红包雨-->
+	<div class="rb_mb">
+		<div class="page_rain">
+        	<div class="bg_box bg_1">
+        	</div>
+        	 <div class="bg_box2 bg_2">
+        	</div>
+    	</div>
+	</div>
+	<!--开始蒙版-->
+	<div class="begin_alert">
+		<div class="begin_alert_text">
+			<p>点击开始启动红包雨</p>
+			<p>此活动只限新用户参加</p>
+			<button type="button" class="begin_alert_btn">确定</button>
+		</div>
+	</div>
+	<!--注册弹窗-->
+	<div class="lx_register_mb">
+		<div class="lx_register">
+			<div class="lx_red_text">
+				<p>恭喜您~抢到 <span class="yellow">20</span> 元红包 </p>
+				<p class="small">输入手机号码领取红包</p>
+			</div>
+			<input type="tel" placeholder="请输入手机号码" class="red_lx_tel" name="phoneno">
+			<!--图形验证-->
+			<div class="red_lx_txyz clear">
+				<input type="text" placeholder="请输入图形验证码" class="fl redBag_lx_text" name="redBag_lx_text">
+				<img src="images/redBag_lx/pic.png" class="fl redBag_lx_pic">
+			</div>
+			<!--验证码-->
+			<div class="red_lx_yz">
+				<input type="text" placeholder="请输入手机验证码" class="fl redBag_lx_text2 " name="redBag_lx_text2">
+				<span class="fl red_hqyzm">获取验证码</span>
+			</div>
+			<button type="button" class="red_lx_r_btn" onclick="submitForm()">领取红包</button>
+			<span class="red_tc_close">×</span>
+		</div>
+	</div>
+	<!--打开红包的gif-->
+	<div class="open_redbag" id="open_redbag">
+		<img src="images/redbag_lx/3.png">
+	</div>
+	<!--红包没抢到弹窗-->
+	<div class="red_null_mb">
+		<div class="red_null">
+			<p>您没有抢到红包哦~~</p>
+			<button type="button" class="replay">再来一次</button>
+		</div>
+	</div>
+<script src="js/redBagLaxin.js"></script>
+<script>
+	//获取验证码
+	var reMobile= /^1[3|4|5|7|8][0-9]\d{8}$/;
+	//发送验证码
+	function codeVerify(){
+		var url=window.location;
+		var ajaxurl = '<%=basePath%>user/getLoginMsg';
+		var telephone = $.trim($(".lx_register_mb").find("input[name='phoneno']").val());
+		//var channelType = $.trim($(".lx_register_mb").find("input[name='channelType']").val());
+		if(telephone == ''){
+			alert("手机号码不能为空");
+			return false;
+		};
+		if(!reMobile.test(telephone)){
+			alert("手机号码格式不正确");
+			$('.red_lx_tel').val('');
+			return false; 
+		};
+		/*$.ajax({ 
+			url: ajaxurl,
+			dataType: "json",
+	        // data:{phoneno:telephone,channelType:channelType,"s_pid":s_pid,"s_pageUrl":s_pageUrl,"s_pageTitle":s_pageTitle,"s_activityName":s_activityName},
+			data:{phoneno:telephone,channelType:channelType},
+			type: "POST",
+			success: function(ajaxobj){
+				if(ajaxobj.status=='000000'){
+					alert("验证码已经发出到手机");
+				}else{
+					vcode_leftTime = 0;
+					alert(ajaxobj.message);
+				}
+			},
+			error:function(ajaxobj){
+				vcode_leftTime = 0;
+				alert("验证码发送失败，请重试");
+			}
+		});	*/
+		return false;	
+	};
+		
+	codeClick();//验证手机验证码调用
+	function codeClick(){ //获取验证码 btn 点击事件
+		var $codeBtn = $('.yanzhengma');   //获取btn
+		var $iNow = 60;			//倒计时秒数
+		var $codeOnoff = true;   //点击按钮开关
+		var $timer = null;		//计时器
+		$codeBtn.on('click',function(){   //btn点击事件
+			if($("#phoneno").val() == ''){
+				alert("手机号码不能为空");
+				return false;
+			};
+			 if(!reMobile.test($("#phoneno").val())){
+				alert("手机号码格式不正确");
+				$('.red_lx_tel').val('');
+				return false;
+			 };
+			 if($codeOnoff){    //如果开关开启 执行
+				$codeOnoff = false;   //关闭开关
+				countDown();
+				codeVerify();		
+				function countDown(){   //倒计时
+					if($iNow === 0||$iNow=='0'){    //倒计时归零
+						clearInterval( $timer )   //清除定时器
+						$iNow = 60;
+						$codeOnoff = true;
+						$codeBtn.css('background-color','#ffcf27');
+						$codeBtn.css('color','#fff');
+						$codeBtn.html( '获取验证码' );
+					}else{
+						$codeBtn.css('background-color','#999');
+						$codeBtn.html( '重新获取('+$iNow+'s)' );
+						$iNow--;
+					}						 
+				}
+				$timer = setInterval(countDown,1000);  //计时器
+			}
+		});	
+		//阻止滑屏
+		function stopTouch(e){ 
+            if ( e && e.preventDefault ){
+               //阻止默认浏览器动作(W3C) 
+               e.preventDefault(); 
+            }                      
+            else{
+               //IE中阻止函数器默认动作的方式 
+               window.event.returnValue = false; 
+            }                 
+            return false;
+        }
+       //隐藏弹窗，恢复划屏  
+		function hideDialog(){  
+			$('.Dialog').hide();
+			$(document).off('touchmove',stopTouch());
+		}	 	 
+	}
+	//图形验证
+	function getImagecodebr(){
+		$('#imgcode_br').attr('src','<%=basePath%>user/getCodeImage?'+Math.random());
+	}
+	$('#imgcode_br').bind('click',function(){
+		getImagecodebr();
+	});
+	//按钮禁止
+	function butAdd(){
+		$("#sub").attr("disabled",true);
+		$("#sub").css("background","#ACA3A3");
+	}
+	//按钮禁止解除
+	function butRemove(){
+		$("#sub").removeAttr("disabled");
+		$("#sub").css("background","#ffcf27");
+	}
+	//按钮触发
+	function submitForm(){
+		butAdd();
+		var codeValue = $.trim($(".lx_register_mb").find("input[name='redBag_lx_text2']").val());
+		var validationimg = $.trim($(".lx_register_mb").find("input[name='redBag_lx_text']").val());
+		$(".red_lx_r_btn").blur();
+		//判断各种情况
+		if(""==$(".red_lx_tel").val()){
+			alert("手机号码不能为空！");
+			butRemove();
+			return ;
+		};
+		if(codeValue == ''){
+			alert("手机验证码不能为空！");
+			butRemove();
+			return ;
+		}else if(codeValue.length < 4 || codeValue.length > 6){
+			alert("请输入正确的手机验证码！");
+			$('.redBag_lx_text2').val('');
+			butRemove();
+			return ;
+		};
+	  	if(!reMobile.test($(".red_lx_tel").val())){
+			alert("手机号码格式不正确！");
+			$('.red_lx_tel').val('');
+			return ;
+		};
+		if(validationimg == ""){
+			alert("请输入图形验证码！");
+			butRemove();
+			return ;
+		}
+		getValide();//校验图形验证码
+		if(isvalide == false){
+			alert("请先输入图形验证码!");
+			butRemove();
+			return ;
+		}
+	    /*$.ajax({ 
+			url: '<%=basePath%>user/isNewUser',
+			dataType: "json",
+			data:{phoneno:$(".red_lx_tel").val()},
+			success: function(ajaxobj){
+				if(ajaxobj=="0"){
+					$.ajax({ 
+						url: '<%=basePath%>user/login',
+						dataType: "json",
+						data:$(".lx_register_mb").serialize(),
+						type: "POST",
+						success: function(ajaxobj){
+							if(ajaxobj.status=="000000"){
+								if(ajaxobj.isFamilyTurn=="000000"){
+									window.location.href='<%=basePath%>wapevent/loginsuccess?channelType=${channelType }';
+								}else{
+									alert(ajaxobj.isFamilyTurn);
+								}
+							}else{
+								alert(ajaxobj.message);
+								$(".redBag_lx_text").val('');
+								getImagecodebr();
+								butRemove();
+							};
+						},
+						error:function(ajaxobj){
+							alert("登录失败，请重试");
+						}
+					});	
+				}else{
+				  alert("您不是新用户，不能再被邀请了呢~");
+				}
+			},
+			error:function(ajaxobj){
+				alert("登录失败，请重试");
+			}
+		});*/ 
+	}
+	var isvalide = false;
+	//图形验证
+	function getValide(){
+		var ajaxurl = '<%=basePath %>user/getLoginValByAjax1';
+		var validationimg = $.trim($(".lx_register_mb").find("input[name='redBag_lx_text']").val())
+		$.ajax({ 
+			url: ajaxurl,
+			dataType: "json",
+			data:{imgvalidate:validationimg},
+			type: "POST",
+			async: false,
+			success: function(ajaxobj){
+				if(ajaxobj.status=="000000"){
+					isvalide = true;
+				}else{
+					alert(ajaxobj.message);
+				}
+			},
+			error:function(ajaxobj){
+				alert("验证码发送失败，请重试");
+			}
+		});
+	}
+		
+</script>
+</body>
+</html>
